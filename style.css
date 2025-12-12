@@ -80,6 +80,7 @@ nav {
     color: var(--accent-color);
 }
 
+
 /* --- Main Content --- */
 main {
     flex: 1;
@@ -108,17 +109,25 @@ main {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 2.2rem; /* Desktop size */
     margin-bottom: 1rem;
     font-weight: 300;
     letter-spacing: -1px;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
+
 .sub-hero {
     font-size: 1.5rem;
-    color: #b8c5d6; /* Slightly lighter than before for contrast */
+    color: #b8c5d6;
     margin-bottom: 3rem;
     font-weight: 300;
+}
+
+/* Mobile Responsiveness: shrink title on small screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem; /* Mobile size */
+    }
 }
 
 /* --- Three Pillars --- */
