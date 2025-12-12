@@ -609,11 +609,11 @@ footer {
     font-size: 1.1rem;
     line-height: 1.5;
     font-weight: bold;
-    text-shadow: 0 2px 4px rgba(0,0,0,1); /* Strong shadow for readability */
+    text-shadow: 0 2px 8px rgba(0,0,0,1); /* Strong shadow for readability */
     text-align: center;
     
     /* Background Image Setup */
-    background-color: rgba(0, 0, 0, 0.6); /* Dark tint */
+    background-color: rgba(0, 0, 0, 0.3); /* Dark tint */
     background-blend-mode: multiply; /* Blends tint into image */
     background-size: cover;
     background-position: center;
