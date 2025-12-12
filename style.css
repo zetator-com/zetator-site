@@ -12,6 +12,7 @@
 }
 
 body {
+    /* --- LAYOUT & TYPOGRAPHY (KEEP THESE) --- */
     margin: 0;
     padding: 0;
     font-family: var(--font-main);
@@ -20,20 +21,44 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: var(--bg-color); /* Keep this as a backup color */
+    
+    /* --- NEW ADDITION --- */
+    overflow-x: hidden; /* Crucial: stops scrollbars from appearing during zoom */
+    position: relative; /* Helps manage the stacking order */
+}
 
-    /* --- BACKGROUND IMAGE UPDATE --- */
-    background-color: var(--bg-color);
-    /*
-       We use a dark semi-transparent gradient overlay on top
-       of the image to ensure text is always readable.
-    */
+body::before {
+    content: "";
+    position: fixed; /* This replaces "background-attachment: fixed" */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Puts it behind your text */
+
+    /* --- THE MOVED BACKGROUND PROPERTIES --- */
     background-image:
         linear-gradient(rgba(11, 13, 23, 0.7), rgba(11, 13, 23, 0.85)),
-        url('graphics/stars-bg.jpg'); /* Make sure your image file has this exact name */
-    background-size: cover;      /* Stretch to fit screen */
-    background-position: center; /* Center the stars */
-    background-attachment: fixed;/* Keep background still while scrolling */
+        url('graphics/stars-bg.jpg');
+    
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+
+    /* --- THE ANIMATION --- */
+    animation: spaceDrift 40s ease-in-out infinite alternate;
+    pointer-events: none; /* Ensures clicks pass through to the page */
+}
+
+/* 3. The Motion Definition */
+@keyframes spaceDrift {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        transform: scale(1.2) rotate(5deg); /* Subtle zoom & twist */
+    }
 }
 
 /* --- Navigation --- */
