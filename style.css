@@ -573,3 +573,60 @@ footer {
     }
 }
 
+/* =========================================
+   HOVER CARD EFFECTS (PILLARS)
+   ========================================= */
+
+/* 1. Parent Card Setup */
+.pillar-item {
+    position: relative; /* Keeps the overlay inside the box */
+    overflow: hidden;   /* Clips the image to the rounded corners */
+    min-height: 250px;  /* Ensures the square image fits better */
+    /* Keeps your existing border/padding styles */
+}
+
+/* 2. The Hidden Overlay (Text + Image) */
+.pillar-detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Layout for the text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    
+    /* Animation settings */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.4s ease;
+    
+    /* Text Styling */
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,1); /* Strong shadow for readability */
+    text-align: center;
+    
+    /* Background Image Setup */
+    background-color: rgba(0, 0, 0, 0.6); /* Dark tint */
+    background-blend-mode: multiply; /* Blends tint into image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* 3. Show on Hover */
+.pillar-item:hover .pillar-detail {
+    opacity: 1;
+}
+
+/* 4. Assign Images to Cards */
+.type-space .pillar-detail  { background-image: url('graphics/pillar-space.png'); }
+.type-bio .pillar-detail    { background-image: url('graphics/pillar-bio.png'); }
+.type-ai .pillar-detail     { background-image: url('graphics/pillar-ai.png'); }
+.type-energy .pillar-detail { background-image: url('graphics/pillar-energy.png'); }
+
