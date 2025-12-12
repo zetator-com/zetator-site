@@ -414,3 +414,93 @@ footer {
     }
 }
 
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply Animation */
+.animate-text {
+    opacity: 0; /* Hidden by default */
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Stagger the delays */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+/* Pillars Grid Layout */
+.pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pillar-item {
+    background: rgba(255, 255, 255, 0.05); /* Subtle transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.pillar-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color); /* Uses the color variable you likely have */
+}
+
+.pillar-item h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+/* Team Grid Layout */
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap; /* Wraps to next line on mobile */
+    margin-top: 3rem;
+}
+
+.team-card {
+    text-align: center;
+    max-width: 300px;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Makes image circular */
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.team-role {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.team-bio {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
