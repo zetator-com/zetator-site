@@ -48,6 +48,7 @@ body::before {
 
     /* --- THE ANIMATION --- */
     animation: spaceDrift 40s ease-in-out infinite alternate;
+    animation-delay: -10s; /* Gives some intitial velocity */
     pointer-events: none; /* Ensures clicks pass through to the page */
 }
 
