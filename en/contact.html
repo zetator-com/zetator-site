@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zetator - Kontakt</title>
-    <link rel="icon" type="image/png" href="graphics/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <title>Zetator - Contact</title>
+    <link rel="icon" type="image/png" href="../graphics/logo.png">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
     <nav>
         <div class="logo">
-            <a href="index.html" style="text-decoration:none; border:none;">
+            <a href="index-en.html" style="text-decoration:none; border:none;">
                 <img src="graphics/logo.png" alt="Zetator Logo" onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block';">
                 <span class="logo-text" style="display:none;">ZETATOR</span>
             </a>
         </div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="ueber-uns.html">Über uns</a>
-            <a href="kontakt.html" class="active" style="color:var(--accent-color);">Kontakt</a>
-            <a href="impressum.html">Impressum</a>
+            <a href="index-en.html">Home</a>
+            <a href="about.html">About us</a>
+            <a href="contact.html" class="active" style="color:var(--accent-color);" >Contact</a>
+            <a href="legal.html">Legal</a>
         </div>
         <div class="lang-switch">
-            <a href="en/contact.html">EN</a>
+            <span class="lang-active">EN</span>
             <span class="separator">|</span>
-            <span class="lang-active">DE</span>
+            <a href="../kontakt.html">DE</a> 
         </div>
     </nav>
 
     <main>
         
-        <h1 class="animate-text">Kontakt</h1>
-        <p class="sub-hero animate-text delay-1">Unsere Standorte weltweit</p>
+        <h1 class="animate-text">Contact Us</h1>
+        <p class="sub-hero animate-text delay-1">Our Locations Worldwide</p>
 
         <div class="address-grid animate-text delay-2">
             
@@ -42,7 +42,7 @@
                     Zetator UG<br>
                     Saarstr. 26<br>
                     54290 Trier<br>
-                    Deutschland
+                    Germany
                 </p>
             </div>
 
@@ -69,8 +69,8 @@
         </div>
 
         <div class="email-section animate-text delay-3">
-            <h2>Schreiben Sie uns</h2>
-            <p>Haben Sie Fragen zu unseren Projekten?</p>
+            <h2>Get in Touch</h2>
+            <p>Do you have questions about our projects?</p>
             
             <div id="js-email-container">
                 Loading contact info...
@@ -81,12 +81,12 @@
 
     <footer>
         <div class="footer-links">
-            <a href="kontakt.html" style="color:var(--accent-color);">Kontakt</a>
-            <a href="impressum.html">Impressum</a>
-            <a href="datenschutz.html">Datenschutzerklärung</a>
+            <a href="contact.html" style="color:var(--accent-color);">Contact</a>
+            <a href="legal.html">Legal</a>
+            <a href="privacy.html">Privacy Policy</a>
         </div>
         <p style="margin-top: 1rem;">
-            Urheberrecht © 2025 Zetator – Alle Rechte vorbehalten.
+            Copyright © 2025 Zetator – All rights reserved.
         </p>
     </footer>
 
@@ -94,7 +94,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             // We break the email into parts so bots can't read it in the code
             var part1 = "info";
-            var part2 = "zetator.com";
+            var part2 = "zetator.com"; // Note: I used .com here. If you prefer .de, change this line.
             var container = document.getElementById("js-email-container");
             
             // Create the link and insert it

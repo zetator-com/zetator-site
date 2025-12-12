@@ -29,7 +29,7 @@ body {
     */
     background-image:
         linear-gradient(rgba(11, 13, 23, 0.7), rgba(11, 13, 23, 0.85)),
-        url('stars-bg.jpg'); /* Make sure your image file has this exact name */
+        url('graphics/stars-bg.jpg'); /* Make sure your image file has this exact name */
     background-size: cover;      /* Stretch to fit screen */
     background-position: center; /* Center the stars */
     background-attachment: fixed;/* Keep background still while scrolling */
@@ -351,3 +351,66 @@ footer {
 .legal-block strong {
     color: #fff;
 }
+
+/* --- Language Switcher --- */
+.lang-switch {
+    border: 1px solid var(--accent-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 15px;
+    transition: all 0.2s;
+}
+
+.lang-switch:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+@media (max-width: 600px) {
+    .lang-switch { margin-left: 0; margin-top: 10px; display: inline-block; }
+}
+
+/* Language Switch Styling */
+.lang-switch {
+    margin-left: 2rem;
+    font-family: inherit;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lang-switch a {
+    text-decoration: none;
+    color: var(--text-color); /* Or white, depending on your theme */
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.lang-switch a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+.lang-switch .lang-active {
+    font-weight: bold;
+    color: var(--accent-color);
+    cursor: default;
+}
+
+.lang-switch .separator {
+    opacity: 0.5;
+}
+
+/* Mobile Responsiveness update */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap; /* Allows items to wrap if screen is small */
+    }
+    .lang-switch {
+        margin-left: auto; /* Pushes it to the right on mobile if needed */
+    }
+}
+
