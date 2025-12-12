@@ -539,3 +539,37 @@ footer {
     line-height: 1.5;
 }
 
+/* --- FINAL MOBILE FIXES --- */
+/* This block ensures text fits on phones, placed last to override everything else */
+@media (max-width: 768px) {
+    
+    /* 1. Constrain the main container */
+    .hero-content {
+        width: 100%;
+        padding-left: 1.5rem;  /* Adds safe zone on left */
+        padding-right: 1.5rem; /* Adds safe zone on right */
+        box-sizing: border-box; /* Ensures padding doesn't make width > 100% */
+    }
+
+    /* 2. Shrink title and force line breaks */
+    h1 {
+        font-size: 1.8rem; /* Smaller size for mobile */
+        word-wrap: break-word; /* Forces long words like "Weltraumerkundung" to break if needed */
+        hyphens: auto; 
+        line-height: 1.3; /* Tighter spacing for multiple lines */
+    }
+
+    /* 3. Adjust sub-text */
+    .sub-hero {
+        font-size: 1.1rem; 
+        padding: 0 0.5rem;
+    }
+
+    /* 4. Ensure pillars stack in a single column */
+    .pillars {
+        grid-template-columns: 1fr !important; /* !important forces the grid to be 1 column */
+        padding: 0 1rem;
+        gap: 1.5rem;
+    }
+}
+
