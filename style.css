@@ -595,21 +595,23 @@ footer {
         padding: 0 0.5rem;
     }
 
-    /* 4. Ensure pillars stack in a single column */
+    /* 4. Pillars Mobile Fix (REPLACE THE OLD .pillars BLOCK WITH THIS) */
     .pillars {
-        display: flex;             /* Ensure Flexbox is active */
-        flex-direction: column;    /* Force vertical stacking */
-        align-items: center;       /* Center items horizontally */
-        width: 100%;               
-        padding: 0;                /* Remove extra padding (hero-content already has it) */
-        gap: 2rem;                 /* Space between stacked cards */
+        display: flex !important;   /* Force Flexbox, ignore any Grid rules */
+        flex-direction: column;     /* Stack them vertically */
+        align-items: center;        /* Snap everything to the center line */
+        width: 100%;                /* Use full available width */
+        padding: 0;                 /* REMOVE extra padding (fixes the off-center issue) */
+        gap: 2rem;                  /* Space between cards */
+        margin-top: 2rem;
     }
 
-    /* 5. Force cards to fit the phone width nicely */
+    /* 5. Pillar Items Mobile Fix */
     .pillar-item {
-        width: 100%;               /* Fill the container width */
-        max-width: 320px;          /* Stop them from getting too huge on larger phones */
-        margin: 0 auto;            /* Double-check centering */
+        width: 100%;                /* Fill the container */
+        max-width: 320px;           /* But don't get wider than a phone screen */
+        margin-left: auto;          /* Auto margins ensure centering... */
+        margin-right: auto;         /* ...even if flex fails somehow */
     }
 }
 
