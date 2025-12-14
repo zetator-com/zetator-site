@@ -503,8 +503,9 @@ footer {
 
 /* Pillars Grid Layout */
 .pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex; /* Switched back to FLEX for better centering of uneven items */
+    flex-wrap: wrap; /* Allows them to wrap on smaller screens */
+    justify-content: center; /* CRITICAL: This centers the items perfectly */
     gap: 2rem;
     margin-top: 3rem;
     max-width: 1200px;
@@ -606,15 +607,22 @@ footer {
    HOVER CARD EFFECTS (PILLARS)
    ========================================= */
 
-/* 1. Parent Card Setup */
+/* 1. Parent Card Setup (NOW HOLDS THE IMAGE) */
 .pillar-item {
-    position: relative; /* Keeps the overlay inside the box */
-    overflow: hidden;   /* Clips the image to the rounded corners */
-    min-height: 250px;  /* Ensures the square image fits better */
-    /* Keeps your existing border/padding styles */
+    position: relative; 
+    overflow: hidden;
+    min-height: 250px;
+    
+    /* --- IMAGE SETTINGS (Visible Immediately) --- */
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.3); 
+    background-blend-mode: multiply;
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 2. The Hidden Overlay (Text + Image) */
+/* 2. The Text Overlay (Hidden Initially) */
 .pillar-detail {
     position: absolute;
     top: 0;
@@ -622,40 +630,54 @@ footer {
     width: 100%;
     height: 100%;
     
-    /* Layout for the text */
+    /* Center the text */
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
     box-sizing: border-box;
     
-    /* Animation settings */
-    opacity: 0; /* Hidden by default */
+    /* Text Styling - TONED DOWN */
+    color: #e0e6ed; /* Softer off-white instead of pure white */
+    font-size: 1rem; /* Standard readable size */
+    line-height: 1.6;
+    font-weight: normal; /* Removed bold */
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Much softer shadow */
+    
+    /* --- ANIMATION & BACKGROUND --- */
+    opacity: 0; 
     transition: opacity 0.4s ease;
     
-    /* Text Styling */
-    color: #fff;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    font-weight: bold;
-    text-shadow: 0 2px 8px rgba(0,0,0,1); /* Strong shadow for readability */
-    text-align: center;
-    
-    /* Background Image Setup */
-    background-color: rgba(0, 0, 0, 0.3); /* Dark tint */
-    background-blend-mode: multiply; /* Blends tint into image */
-    background-size: cover;
-    background-position: center;
+    /* Dark background covers the image so text is readable */
+    background-color: rgba(0, 0, 0, 0.9); /* Slightly darker for better contrast with thin text */
+    backdrop-filter: blur(3px); 
+    z-index: 10; 
 }
 
-/* 3. Show on Hover */
+/* 3. Show Overlay on Hover */
 .pillar-item:hover .pillar-detail {
     opacity: 1;
 }
 
-/* 4. Assign Images to Cards */
-.type-space .pillar-detail  { background-image: url('graphics/pillar-space.png'); }
-.type-bio .pillar-detail    { background-image: url('graphics/pillar-bio.png'); }
-.type-ai .pillar-detail     { background-image: url('graphics/pillar-ai.png'); }
-.type-energy .pillar-detail { background-image: url('graphics/pillar-energy.png'); }
+/* 4. TITLE ANIMATION (Fade out on hover) */
+.pillar-item h3 {
+    position: relative;
+    z-index: 5; 
+    transition: opacity 0.3s ease; 
+    
+    /* Title stays bold and bright to stand out over the image */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8); 
+}
+
+/* When hovering the CARD, make the TITLE disappear */
+.pillar-item:hover h3 {
+    opacity: 0;
+}
+
+/* 5. Assign Images to Parent Cards */
+.type-space  { background-image: url('graphics/pillar-space.png'); }
+.type-bio    { background-image: url('graphics/pillar-bio.png'); }
+.type-ai     { background-image: url('graphics/pillar-ai.png'); }
+.type-energy { background-image: url('graphics/pillar-energy.png'); }
 
