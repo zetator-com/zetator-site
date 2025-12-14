@@ -597,9 +597,19 @@ footer {
 
     /* 4. Ensure pillars stack in a single column */
     .pillars {
-        grid-template-columns: 1fr !important; /* !important forces the grid to be 1 column */
-        padding: 0 1rem;
-        gap: 1.5rem;
+        display: flex;             /* Ensure Flexbox is active */
+        flex-direction: column;    /* Force vertical stacking */
+        align-items: center;       /* Center items horizontally */
+        width: 100%;               
+        padding: 0;                /* Remove extra padding (hero-content already has it) */
+        gap: 2rem;                 /* Space between stacked cards */
+    }
+
+    /* 5. Force cards to fit the phone width nicely */
+    .pillar-item {
+        width: 100%;               /* Fill the container width */
+        max-width: 320px;          /* Stop them from getting too huge on larger phones */
+        margin: 0 auto;            /* Double-check centering */
     }
 }
 
